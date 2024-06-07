@@ -5,7 +5,7 @@ import "../App.css";
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const chatBoxRef = useRef(null); // created a reference for chat box
+  const chatBoxRef = useRef(null);
 
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
@@ -17,7 +17,7 @@ const Chat = () => {
     if (chatBoxRef.current) {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
     }
-  }, [messageList]);
+}, [messageList]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
