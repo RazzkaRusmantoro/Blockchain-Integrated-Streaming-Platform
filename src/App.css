@@ -110,11 +110,13 @@
   flex: 1;
   width: 100%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column; 
 }
 
 .message-list {
   display: flex;
-  flex-direction: column-reverse; 
+  flex-direction: column; 
   margin: 10px;
 }
 
@@ -135,7 +137,7 @@
 
 .input-form input {
   flex: 1;
-    padding: 10px;
+  padding: 10px;
 }
 
 .input-form button {
