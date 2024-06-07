@@ -48,6 +48,8 @@ button {
 }
 button:hover {
   border-color: #646cff;
+  transform: scale(1.2);
+  transition: 0.2s;
 }
 button:focus,
 button:focus-visible {
