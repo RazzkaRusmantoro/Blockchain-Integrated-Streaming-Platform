@@ -19,7 +19,7 @@ const VideoPlayer = () => {
     setVideo("https://www.youtube.com/watch?v=yx-3su3Pmeo");
   }, []);
 
-  const handleSwitchPlayer = async (index) => {
+  const handleSwitchPlayer = (index) => {
     setVideo(players[index]);
     setCurrentPlayer(index);
   };
@@ -31,25 +31,19 @@ const VideoPlayer = () => {
         light={true}
         className="react-player"
         url={video}
-        width="90%"
-        height="90%"
+        width="100%"
+        height="100%"
       />
       <div className="button-container">
-        {players.map((player, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => {
-                handleSwitchPlayer(index);
-              }}
-              className={
-                currentPlayer === index ? "button-active" : "button-inactive"
-              }
-            >
-              Player {index + 1}
-            </button>
-          );
-        })}
+        {players.map((player, index) => (
+          <button
+            key={index}
+            onClick={() => handleSwitchPlayer(index)}
+            className={currentPlayer === index ? "button-active" : "button-inactive"}
+          >
+            Player {index + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
