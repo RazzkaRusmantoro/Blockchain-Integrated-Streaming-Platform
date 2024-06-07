@@ -1,6 +1,6 @@
-import React from 'react';
-import VideoPlayer from './components/VideoPlayer';
-import './App.css';
+import React from "react";
+import VideoPlayer from "./components/VideoPlayer";
+import "./App.css";
 
 const App = () => {
   return (

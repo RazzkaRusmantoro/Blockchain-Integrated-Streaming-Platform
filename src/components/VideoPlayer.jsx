@@ -1,34 +1,56 @@
-import React, { useState } from 'react';
-import ReactPlayer from 'react-player/youtube';
-import '../App.css';
+import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player/youtube";
+import "../App.css";
 
 const VideoPlayer = () => {
-  const [video, setVideo] = useState('https://www.youtube.com/watch?v=yx-3su3Pmeo');
-  const [currentPlayer, setCurrentPlayer] = useState(1);
+  const [video, setVideo] = useState("");
+  const [players, setPlayers] = useState([]);
+  const [currentPlayer, setCurrentPlayer] = useState(0);
 
-  const handleSwitchPlayer = () => {
-    if (currentPlayer === 1) {
-      setVideo('https://www.youtube.com/watch?v=ycAepSv65Mo');
-      setCurrentPlayer(2);
-    } else {
-      setVideo('https://www.youtube.com/watch?v=yx-3su3Pmeo');
-      setCurrentPlayer(1);
-    }
+  useEffect(() => {
+    setPlayers([
+      "https://www.youtube.com/watch?v=ycAepSv65Mo",
+      "https://www.youtube.com/watch?v=yx-3su3Pmeo",
+      "https://www.youtube.com/watch?v=GmKD3-ChSYI",
+      "https://www.youtube.com/watch?v=ycAepSv65Mo",
+      "https://www.youtube.com/watch?v=yx-3su3Pmeo",
+      "https://www.youtube.com/watch?v=GmKD3-ChSYI",
+    ]);
+    setVideo("https://www.youtube.com/watch?v=yx-3su3Pmeo");
+  }, []);
+
+  const handleSwitchPlayer = async (index) => {
+    setVideo(players[index]);
+    setCurrentPlayer(index);
   };
 
   return (
     <div className="video-container">
-      <ReactPlayer 
+      <ReactPlayer
         playing={true}
         light={true}
-        className='react-player'
+        className="react-player"
         url={video}
-        width='90%'
-        height='90%'
+        width="90%"
+        height="90%"
       />
-      <button onClick={handleSwitchPlayer}>
-        {currentPlayer === 1 ? 'Player 1' : 'Player 2'}
-      </button>
+      <div className="button-container">
+        {players.map((player, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => {
+                handleSwitchPlayer(index);
+              }}
+              className={
+                currentPlayer === index ? "button-active" : "button-inactive"
+              }
+            >
+              Player {index + 1}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };
