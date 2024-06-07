@@ -16,7 +16,7 @@ const Chat = () => {
     if (chatBoxRef.current) {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
     }
-  }, [messageList]);
+}, [messageList]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

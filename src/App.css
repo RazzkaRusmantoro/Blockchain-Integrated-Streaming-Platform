@@ -104,6 +104,7 @@
   flex-direction: column;
   width: 20%;
   height: 100%;
+
 }
 
 .chat-box {
@@ -111,7 +112,7 @@
   width: 100%;
   overflow-y: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse; 
 }
 
 .message-list {
