@@ -5,7 +5,7 @@ import "../App.css";
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const chatBoxRef = useRef(null);
+  const chatBoxRef = useRef(null); // created a reference for chat box
 
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
