@@ -11,7 +11,6 @@ const Chat = () => {
     setMessage(event.target.value);
   };
 
-
   // implemented useEffect hook to scroll to bottom of the chat when a new message enters the chat
   useEffect(() => {
     if (chatBoxRef.current) {
@@ -50,9 +49,7 @@ const Chat = () => {
           value={message}
           onChange={handleMessageChange}
           placeholder="Type your message..."
-
         />
-
       </form>
     </div>
   );

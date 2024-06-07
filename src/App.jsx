@@ -1,15 +1,31 @@
 import React from "react";
-import VideoPlayer from "./components/VideoPlayer";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import WatchParty from "./pages/WatchParty";
 import "./App.css";
-import Chat from "./components/Chat";
 
 const App = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
-    <div className="app-container">
-      <VideoPlayer />
-      <Chat />
-    </div>
+    <>
+      {isHome && <Navbar />}
+      <div className={`content ${isHome ? "with-navbar" : ""}`}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/watch-party" element={<WatchParty />} />
+        </Routes>
+      </div>
+    </>
   );
 };
 
-export default App;
+const AppWrapper = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default AppWrapper;

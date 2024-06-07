@@ -39,7 +39,9 @@ const VideoPlayer = () => {
           <button
             key={index}
             onClick={() => handleSwitchPlayer(index)}
-            className={currentPlayer === index ? "button-active" : "button-inactive"}
+            className={
+              currentPlayer === index ? "button-active" : "button-inactive"
+            }
           >
             Player {index + 1}
           </button>

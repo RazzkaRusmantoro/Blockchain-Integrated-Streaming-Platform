@@ -52,7 +52,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  flex: 7; 
+  flex: 7;
 }
 
 .react-player {
@@ -79,12 +79,12 @@
 
 .button-container {
   position: absolute;
-  bottom: 20px; 
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .button-inactive {
@@ -111,12 +111,12 @@
   width: 100%;
   overflow-y: auto;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .message-list {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   margin: 10px;
 }
 
@@ -166,4 +166,111 @@
 .message-text {
   text-align: justify;
   color: grey;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  background-color: #333;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+.active {
+  font-weight: bold;
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container {
+  position: relative;
+  display: inline-block;
+}
+
+.home-img {
+  width: 95vw;
+  border-radius: 17px;
+  height: 500px;
+}
+
+.home-text {
+  position: absolute;
+  bottom: 0px;
+  left: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 83vw;
+}
+
+.text-container {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.text-bottom {
+  font-size: 40px;
+  font-family: "Karantina", sans-serif;
+  font-weight: bold;
+}
+
+.text-top {
+  font-size: 60px;
+  font-family: "Karantina", sans-serif;
+  font-weight: bold;
+  letter-spacing: 10px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.countdown {
+  font-family: "Karantina", sans-serif;
+  color: #2D9791;
+  font-size: 28px;
+  letter-spacing: 5px;
+}
+
+.start-connection {
+  font-family: "Source Code Pro", monospace;
+  font-size: 14px;
+  border-radius: 0;
+  background: white;
+  color: black;
+  width: 176px;
+  height: 46px;
+  border: 4px solid black;
+  transition: all 0.3s ease;
+  transform: none !important;
 }
