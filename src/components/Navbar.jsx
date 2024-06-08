@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">some name here</div>
+        <div className="navbar-logo" style={{ color: "red" }}>Abdur is the best!</div>
         <ul className="navbar-nav">
           <li>
             <NavLink to="/" exact activeClassName="active">

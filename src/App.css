@@ -6,7 +6,6 @@
 }
 
 body {
-  background-color: black;
   overflow-y: scroll !important;
   height: auto;
 }
@@ -263,7 +262,7 @@ nav {
 }
 
 .navbar-logo {
-  color: #2d9791;
+  color: #ff00d9;
   padding-left: 3em;
   font-weight: bolder;
   font-size: 20px;
@@ -411,3 +410,52 @@ nav ul li a {
   align-items: center;
   justify-content: end;
 }
+
+.navbar {
+  background-color: rgb(45, 0, 0); /* Set the background color of the navbar to transparent */
+  border-bottom: none; /* Remove any border at the bottom of the navbar */
+  padding: 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure the navbar stays on top of other elements */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #2d9791;
+  padding-left: 3em;
+  font-weight: bolder;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-right: 7em;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+.active {
+  font-weight: bold;
+  background-color: #520000;
+  border-radius: 4px;
+}
+
