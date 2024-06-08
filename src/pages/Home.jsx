@@ -1,6 +1,7 @@
 import React from "react";
 import Countdown from "react-countdown";
 import homeImage from "../assets/homepage.jpg";
+import streamOne from "../assets/stream1.jpeg";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -35,6 +36,7 @@ const Home = () => {
       </div>
       <div className="events-container">
         <p className="text-events">CONNECT WITH OTHER EVENTS</p>
+        <img src={streamOne} className="events-img" />
       </div>
     </>
   );

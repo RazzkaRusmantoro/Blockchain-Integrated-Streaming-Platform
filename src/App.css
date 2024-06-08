@@ -398,3 +398,8 @@ nav ul li a {
 .events-container {
   margin-top: 1em;
 }
+
+.events-img {
+  border-radius: 20px;
+    width: 70vw;
+}
