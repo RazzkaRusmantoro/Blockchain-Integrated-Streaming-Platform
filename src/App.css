@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+body {
+  background-color: black;
+  overflow-y: scroll !important;
+  height: auto;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -127,14 +133,10 @@
   justify-content: center;
 }
 
-
-
 .button-active {
-  background-color: white ;
+  background-color: white;
   color: black;
 }
-
-
 
 .chat-container {
   display: flex;
@@ -155,7 +157,7 @@
   width: 100%;
   overflow-y: auto;
   display: flex;
-  flex-direction: column-reverse; 
+  flex-direction: column-reverse;
 }
 
 .message-list {
@@ -228,7 +230,7 @@
   border: none;
   padding: 10px;
   cursor: pointer;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .collapse-button:hover {
@@ -251,12 +253,21 @@
 
 nav {
   width: 100%;
-  background-color: #333;
-  padding: 1em;
-  position: fixed;
+  background-color: black;
+  border-bottom: 0.5px solid white;
+  padding: 2em;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
+}
+
+.navbar-logo {
+  color: #2d9791;
+  padding-left: 3em;
+  font-weight: bolder;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
 }
 
 nav ul {
@@ -264,6 +275,7 @@ nav ul {
   display: flex;
   padding: 0;
   margin: 0;
+  margin-right: 7em;
 }
 
 nav ul li {
@@ -287,17 +299,38 @@ nav ul li a {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-top: 5em;
 }
 
 .home-container {
   position: relative;
   display: inline-block;
+  margin-top: 2em;
+  height: auto;
 }
 
 .home-img {
-  width: 95vw;
+  width: 93vw;
   border-radius: 17px;
   height: 500px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 93vw;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 17px;
+}
+
+.text-events {
+  font-family: "Karantina", sans-serif;
+  color: #2d9791;
+  font-size: 48px;
 }
 
 .home-text {
@@ -309,32 +342,44 @@ nav ul li a {
   align-items: center;
   width: 83vw;
 }
-
 .text-container {
   position: relative;
-  margin-bottom: 40px;
-}
-
-.text-bottom {
-  font-size: 40px;
-  font-family: "Karantina", sans-serif;
-  font-weight: bold;
+  text-align: center;
 }
 
 .text-top {
-  font-size: 60px;
+  font-size: 55px;
   font-family: "Karantina", sans-serif;
   font-weight: bold;
   letter-spacing: 10px;
-  margin-bottom: 0;
-  padding-bottom: 0;
+  padding-left: 30px;
+}
+
+.text-container::after {
+  content: "VALORANT";
+  font-size: 100px;
+  font-family: "Karantina", sans-serif;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #efdede92;
+  position: absolute;
+  top: 20px; 
+  left: -35px;
+  right: 0;
+  text-align: center;
+  letter-spacing: 5px;
+  z-index: 2;
 }
 
 .countdown {
   font-family: "Karantina", sans-serif;
-  color: #2D9791;
+  color: #2d9791;
   font-size: 28px;
   letter-spacing: 5px;
+  position: absolute;
+  bottom: 15px;
+  left: 95px;
 }
 
 .start-connection {
@@ -348,4 +393,8 @@ nav ul li a {
   border: 4px solid black;
   transition: all 0.3s ease;
   transform: none !important;
+}
+
+.events-container {
+  margin-top: 1em;
 }
