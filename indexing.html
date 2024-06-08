@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metamask Payment Example</title>
+    <!-- Include web3.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+</head>
+<body>
+    <h1>Metamask Payment Example</h1>
+    <button id="payButton">Pay with Metamask</button>
+
+    <script>
+        document.getElementById('payButton').addEventListener('click', async () => {
+            // Check if Metamask is installed
+            if (typeof window.ethereum !== 'undefined') {
+                // Initialize Web3 with Metamask provider
+                const web3 = new Web3(window.ethereum);
+
+                try {
+                    // Request access to accounts
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const recipientAddress = '0xd20Aef8aEF694d436B3A3a30C43A24fFa8FAC95A'; // Replace with recipient's Ethereum address
+                    const amountToSend = web3.utils.toWei('0.1', 'ether'); // Amount in Wei (1 ether = 10^18 Wei)
+
+                    // Send transaction
+                    const receipt = await web3.eth.sendTransaction({
+                        from: accounts[0],
+                        to: recipientAddress,
+                        value: amountToSend
+                    });
+
+                    console.log('Transaction receipt:', receipt);
+                    alert('Payment successful!');
+                } catch (error) {
+                    console.error('Transaction error:', error);
+                    alert('Payment failed. Please check the console for details.');
+                }
+            } else {
+                // Metamask not detected, handle the case
+                console.error('Metamask is not installed');
+                alert('Metamask is not installed');
+            }
+        });
+
+        // Handle Metamask disconnect event
+        window.ethereum.on('disconnect', (error) => {
+            console.error('Metamask was disconnected:', error);
+            alert('Metamask was disconnected. Please reload the page.');
+        });
+    </script>
+</body>
+</html>
