@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       {isHome && <Navbar />}
-      <div className={`content ${isHome ? "with-navbar" : ""}`}>
+      <div className={`${isHome ? "with-navbar content" : ""}`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/watch-party" element={<WatchParty />} />
