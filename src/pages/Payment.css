@@ -26,15 +26,21 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure the container takes at least the viewport height */
-  padding: 20px;
+  min-height: 10vh; /* Ensure the container takes at least the viewport height */
+  padding: 200px;
   background-color: white;
-  height: 10px;
+  /* height: 10px; */ /* Remove this line */
+  border-radius: 30px;
 }
 
 .payment-content {
   text-align: center;
   color: black; /* Text color to contrast the background */
+}
+
+.text {
+  margin-top: -200px;
+  margin-left: -200px;
 }
 
 .payment-content h1 {
