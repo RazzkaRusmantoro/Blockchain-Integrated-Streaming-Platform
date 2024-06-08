@@ -16,6 +16,10 @@ const Home = () => {
     </span>
   );
 
+  const handleWatchPartyClick = () => {
+    navigate('/payment');
+  };
+
   return (
     <>
       <div className="home-container">
@@ -26,14 +30,7 @@ const Home = () => {
             <p className="text-top">NOW LIVE</p>
             <Countdown date={targetTime} renderer={renderer} />
           </div>
-          <button
-            onClick={() => {
-              navigate("/watch-party");
-            }}
-            className="start-connection"
-          >
-            Start Connection
-          </button>
+          <button className="start-connection" onClick={handleWatchPartyClick}>Watch Party</button> {}
         </div>
       </div>
       <div className="events-container">
