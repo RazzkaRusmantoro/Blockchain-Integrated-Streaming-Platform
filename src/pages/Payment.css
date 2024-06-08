@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   position: relative;
+  
 }
 
 body::before {
@@ -30,7 +31,11 @@ body::before {
   padding: 200px;
   background-color: white;
   border-radius: 30px;
+  border-style: outset;
+  border-color: rgb(186, 186, 186);
+  border-width: 1.5px;
 }
+
 
 .payment-content {
   text-align: center;
@@ -38,8 +43,8 @@ body::before {
 }
 
 .text {
-  margin-top: -175px;
-  margin-left: -280px;
+  margin-top: -155px;
+  margin-left: -330px;
   font-size: 27.5px;
 }
 
@@ -52,4 +57,40 @@ body::before {
   display: inline-block;
   text-align: left;
   margin-right: 10px;
+}
+
+.radioButtonsDiv {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: -300px;
+  padding: 10px 150px;
+  gap: 40px;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  background-color: rgb(246, 246, 246);
+  width: 300%;
+  border-radius: 10px;
+  padding: 5px 5px;
+  height: 30px;
+  border-style:solid;
+  border-width: 1.5px;
+}
+
+
+.radioOption input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radioOption label {
+  display: flex;
+  align-items: center;
+}
+
+.mleft {
+  margin-left: 10ypx;
 }
