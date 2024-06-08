@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import WatchParty from "./pages/WatchParty";
+import Payment from "./pages/Payment"; // Import the Payment component
 import "./App.css";
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
       <div className={`${isHome ? "with-navbar content" : ""}`}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/watch-party" element={<WatchParty/>} />
+          <Route path="/watch-party" element={<WatchParty />} />
+          <Route path="/payment" element={<Payment />} /> {}
         </Routes>
       </div>
     </>

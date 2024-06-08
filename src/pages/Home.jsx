@@ -1,5 +1,6 @@
 import React from "react";
 import Countdown from 'react-countdown';
+import { useNavigate } from "react-router-dom";
 import homeImage from "../assets/homepage.jpg";
 
 const Home = () => {
@@ -9,16 +10,21 @@ const Home = () => {
     <span className="countdown">{hours.toString().padStart(2, '0')}:{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</span>
   );
 
+  const navigate = useNavigate();
+
+  const handleWatchPartyClick = () => {
+    navigate('/payment');
+  };
+
   return (
     <div className="home-container">
       <img src={homeImage} alt="Homepage" className="home-img" />
       <div className="home-text">
-        <div class="text-container">
-          {/* <p className="text-bottom">VALORANT</p> */}
+        <div className="text-container">
           <p className="text-top">NOW LIVE</p>
           <Countdown date={targetTime} renderer={renderer} />
         </div>
-        <button className="start-connection">Start Connection</button>
+        <button className="start-connection" onClick={handleWatchPartyClick}>Watch Party</button> {}
       </div>
     </div>
   );
