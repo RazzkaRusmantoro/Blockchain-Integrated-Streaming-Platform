@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Countdown from "react-countdown";
 import homeImage from "../assets/homepage.jpg";
 import streamOne from "../assets/stream1.jpeg";
 import { useNavigate } from "react-router-dom";
-import { IoArrowForward } from "react-icons/io5";
-import Payment from "./Payment"; // Import the Payment component
+import { IoArrowForward  } from "react-icons/io5";
 
 const Home = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const targetTime =
@@ -21,11 +19,7 @@ const Home = () => {
   );
 
   const handleWatchPartyClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+    navigate('/payment');
   };
 
   return (
@@ -38,19 +32,14 @@ const Home = () => {
             <p className="text-top">NOW LIVE</p>
             <Countdown date={targetTime} renderer={renderer} />
           </div>
-          <button className="start-connection" onClick={handleWatchPartyClick}>
-            Watch Party
-          </button>
+          <button className="start-connection" onClick={handleWatchPartyClick}>Watch Party</button> {}
         </div>
       </div>
       <div className="events-container">
         <p className="text-events">CONNECT WITH OTHER EVENTS</p>
         <img src={streamOne} className="events-img" />
-        <p className="text-view-more">
-          VIEW MORE <IoArrowForward width={10} />{" "}
-        </p>
+        <p className="text-view-more">VIEW MORE <IoArrowForward width={10} /> </p>
       </div>
-      {isModalOpen && <Payment closeModal={closeModal} />} {/* Render the Payment modal */}
     </>
   );
 };
