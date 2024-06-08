@@ -39,7 +39,7 @@ const VideoPlayer = () => {
         <div
         className="button-container"
         style={
-          team ? { backgroundColor: "rgba(0, 0, 255, 0.21)" } : { backgroundColor: "#FF7074" }
+          team ? { backgroundColor: "#201C2C" } : { backgroundColor: "#66274D" }
         }
       >
         <div className='icon-container' onClick={() => setTeam(!team)}><IoPersonOutline />

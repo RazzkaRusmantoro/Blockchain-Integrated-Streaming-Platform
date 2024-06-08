@@ -7,22 +7,42 @@ const Chat = () => {
   const [collapsed, setCollapsed] = useState(false);
   const chatBoxRef = useRef(null);
 
-  const handleMessageChange = (event) => {
-    setMessage(event.target.value);
-  };
-
   useEffect(() => {
     if (chatBoxRef.current) {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
     }
   }, [messageList]);
 
+  useEffect(() => {
+    const joinTimer = setTimeout(() => {
+      setMessageList((prevList) => [
+        ...prevList,
+        { name: "Xiao", message: "joined" }
+      ]);
+
+      const hiTimer = setTimeout(() => {
+        setMessageList((prevList) => [
+          ...prevList,
+          { name: "Xiao", message: "hello :D" }
+        ]);
+      }, 2000);
+
+      return () => clearTimeout(hiTimer);
+    }, 3000);
+
+    return () => clearTimeout(joinTimer);
+  }, []);
+
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+
   const handleCollapse = () => {
     setCollapsed(!collapsed);
   };
 
   const chatContainerStyle = {
-    width: collapsed ? "5%" : "20%", 
+    width: collapsed ? "5%" : "20%",
   };
 
   const headerStyle = {
@@ -40,7 +60,10 @@ const Chat = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setMessageList([...messageList, message]);
+    setMessageList((prevList) => [
+      ...prevList,
+      { name: "Ayaka", message }
+    ]);
     setMessage("");
   };
 
@@ -50,22 +73,22 @@ const Chat = () => {
         <button onClick={handleCollapse} className="collapse-button">
           {collapsed ? "<<" : ">>"}
         </button>
-        <span>Stream Chat</span> {/* Wrap text in a span for opacity control */}
+        <span>Stream Chat</span>
       </h1>
       {!collapsed && (
         <>
           <div className="chat-box" ref={chatBoxRef}>
             <div className="message-list">
-              {messageList.map((msg, index) => (
+              {messageList.map((msgObj, index) => (
                 <div key={index} className="message">
                   <img
                     className="sender-icon"
-                    src="https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/kamisato_ayaka/image.png?strip=all&quality=100"
+                    src={msgObj && msgObj.name === 'Ayaka' ? "https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/kamisato_ayaka/image.png?strip=all&quality=100" : "https://pbs.twimg.com/media/E6xPYmEX0AMygZg?format=jpg&name=4096x4096"}
                     alt="sender-icon"
                   />
                   <div>
-                    <div className="sender-name">Ayaka</div>
-                    <div className="message-text">{msg}</div>
+                    <div className="sender-name">{msgObj.name}</div>
+                    <div className="message-text">{msgObj.message}</div>
                   </div>
                 </div>
               ))}
@@ -76,7 +99,6 @@ const Chat = () => {
               type="text"
               value={message}
               onChange={handleMessageChange}
-              placeholder="Type your message..."
             />
           </form>
         </>
