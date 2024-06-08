@@ -6,7 +6,7 @@ import ethImg from '../assets/ethereum.png';
 import btcImg from '../assets/bitcoin.png';
 import paypalImg from '../assets/paypal.png';
 
-const Payment = () => {
+const Payment = ({ closeModal }) => {
   const [selectedPaymentOption, setSelectedPaymentOption] = useState('');
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const Payment = () => {
 
           console.log('Transaction receipt:', receipt);
           alert('Payment successful!');
-          
+
           // Redirect to WatchParty page after successful payment
           navigate('/watch-party');
 
@@ -53,62 +53,82 @@ const Payment = () => {
     }
   };
 
+  const handleClickOutside = (event) => {
+    if (event.target.className === 'modal-overlay') {
+      closeModal();
+    }
+  };
+
   return (
-    <div className="payment-container">
-      <div className="payment-content">
-        <h2 className="text">Payment</h2>
-        <div className="radioButtonsDiv">
-          <div className="radioOption">
-            <input
-              type="radio"
-              id="creditCard"
-              name="paymentOption"
-              value="creditCard"
-              onChange={handlePaymentOptionChange}
-            />
-            <label htmlFor="creditCard" style={{ fontSize: "15px", marginLeft: "0px" }}>
-              Credit Cards
-            </label>
+    <div className="modal-overlay" onClick={handleClickOutside}>
+      <div className="payment-modal">
+        <div className="payment-content">
+          <h2 className="text">Payment</h2>
+          <div className="radioButtonsDiv">
+            <div className="radioOption">
+              <input
+                type="radio"
+                id="creditCard"
+                name="paymentOption"
+                value="creditCard"
+                onChange={handlePaymentOptionChange}
+              />
+              <label htmlFor="creditCard" style={{
+                fontSize: "15px", marginLeft: "8px", position: 'relative',
+                top: '2px'
+              }}>
+                Credit Card
+              </label>
+            </div>
+            <div className="radioOption">
+              <input
+                type="radio"
+                id="paypal"
+                name="paymentOption"
+                value="paypal"
+                onChange={handlePaymentOptionChange}
+              />
+              <label htmlFor="paypal">
+                <img src={paypalImg} className="mleft" alt="PayPal" style={{
+                  width: "60px", position: 'relative',
+                  top: '5px'
+                }} />
+              </label>
+            </div>
+            <div className="radioOption">
+              <input
+                type="radio"
+                id="ethereum"
+                name="paymentOption"
+                value="ethereum"
+                onChange={handlePaymentOptionChange}
+              />
+              <label htmlFor="ethereum">
+                <img src={ethImg} className="mleft" alt="Ethereum" style={{
+                  width: "17.5px", position: 'relative',
+                  top: '5px'
+                }} />
+              </label>
+            </div>
+            <div className="radioOption">
+              <input
+                type="radio"
+                id="bitcoin"
+                name="paymentOption"
+                value="bitcoin"
+                onChange={handlePaymentOptionChange}
+              />
+              <label htmlFor="bitcoin">
+                <img src={btcImg} alt="Bitcoin" style={{
+                  width: "35px", marginLeft: "4px", position: 'relative',
+                  top: '5px'
+                }} />
+              </label>
+            </div>
           </div>
-          <div className="radioOption">
-            <input
-              type="radio"
-              id="paypal"
-              name="paymentOption"
-              value="paypal"
-              onChange={handlePaymentOptionChange}
-            />
-            <label htmlFor="paypal">
-              <img src={paypalImg} className="mleft" alt="PayPal" style={{ width: "60px" }} />
-            </label>
+          <div>
+            <button className="contButton" onClick={handlePayment}>Continue</button>
           </div>
-          <div className="radioOption">
-            <input
-              type="radio"
-              id="ethereum"
-              name="paymentOption"
-              value="ethereum"
-              onChange={handlePaymentOptionChange}
-            />
-            <label htmlFor="ethereum">
-              <img src={ethImg} className="mleft" alt="Ethereum" style={{ width: "17.5px" }} />
-            </label>
-          </div>
-          <div className="radioOption">
-            <input
-              type="radio"
-              id="bitcoin"
-              name="paymentOption"
-              value="bitcoin"
-              onChange={handlePaymentOptionChange}
-            />
-            <label htmlFor="bitcoin">
-              <img src={btcImg} alt="Bitcoin" style={{ width: "35px" }} />
-            </label>
-          </div>
-        </div>
-        <div>
-          <button className="contButton" onClick={handlePayment}>Continue</button>
         </div>
       </div>
     </div>

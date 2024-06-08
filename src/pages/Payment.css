@@ -1,10 +1,9 @@
-
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   position: relative;
-  
+
 }
 
 body::before {
@@ -27,7 +26,7 @@ body::before {
   justify-content: center;
   align-items: center;
   min-height: 10vh;
-  padding: 200px 200px 50px ;
+  padding: 200px 200px 50px;
   background-color: white;
   border-radius: 30px;
   border-style: outset;
@@ -37,12 +36,11 @@ body::before {
 
 .payment-content {
   text-align: center;
-  color: black; 
+  color: black;
 }
 
 .text {
-  margin-top: -155px;
-  margin-left: -330px;
+  font-family: "Inter", sans-serif;
   font-size: 27.5px;
 }
 
@@ -56,42 +54,102 @@ body::before {
   margin-right: 10px;
 }
 
+/* Payment.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.payment-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  max-width: 80%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: calc(100vh - 30%);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.payment-content {
+  text-align: center;
+}
+
 .radioButtonsDiv {
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: -300px;
-  padding: 10px 150px;
-  gap: 40px;
+  margin-bottom: 20px;
 }
 
 .radioOption {
+  margin: 10px 0;
   display: flex;
   align-items: center;
-  background-color: rgb(246, 246, 246);
-  width: 300%;
-  border-radius: 10px;
-  padding: 5px 5px;
-  height: 30px;
-  border-style:solid;
-  border-width: 1.5px;
 }
 
 .radioOption input[type="radio"] {
-  margin-right: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
 }
 
-.radioOption label {
-  display: flex;
-  align-items: center;
+.radioOption input[type="radio"]:checked {
+  background-color: #fff;
+}
+
+.radioOption input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  background-color: #007bff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .mleft {
-  margin-left: 10ypx;
+  margin-left: 10px;
 }
 
 .contButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  margin-top: 40px;
+.contButton:hover {
+  background-color: #0056b3;
 }
