@@ -3,6 +3,7 @@ import Countdown from "react-countdown";
 import homeImage from "../assets/homepage.jpg";
 import streamOne from "../assets/stream1.jpeg";
 import { useNavigate } from "react-router-dom";
+import { IoArrowForward  } from "react-icons/io5";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Home = () => {
       <div className="events-container">
         <p className="text-events">CONNECT WITH OTHER EVENTS</p>
         <img src={streamOne} className="events-img" />
+        <p className="text-view-more">VIEW MORE <IoArrowForward width={10} /> </p>
       </div>
     </>
   );
