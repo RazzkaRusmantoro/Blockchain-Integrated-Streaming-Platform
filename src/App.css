@@ -401,5 +401,13 @@ nav ul li a {
 
 .events-img {
   border-radius: 20px;
-    width: 70vw;
+    width: 50vw;
+}
+
+.text-view-more {
+  font-family: "Karantina", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
