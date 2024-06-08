@@ -15,7 +15,7 @@ const App = () => {
       <div className={`${isHome ? "with-navbar content" : ""}`}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/watch-party" element={<WatchParty />} />
+          <Route path="/watch-party" element={<WatchParty/>} />
         </Routes>
       </div>
     </>

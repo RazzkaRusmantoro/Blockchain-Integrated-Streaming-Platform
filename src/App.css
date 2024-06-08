@@ -127,20 +127,14 @@
   justify-content: center;
 }
 
-.button-inactive:hover {
-  transform: scale(1.1);
-  border: none;
-}
+
 
 .button-active {
-  background-color: initial;
+  background-color: white ;
   color: black;
 }
 
-.button-active:hover {
-  transform: scale(1.1);
-  border: none;
-}
+
 
 .chat-container {
   display: flex;

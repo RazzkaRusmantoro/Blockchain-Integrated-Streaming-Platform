@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 h1 {
@@ -46,13 +47,10 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #ffffff;
-  
-}
+
 button:focus,
 button:focus-visible {
-  outline: none;
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -67,4 +65,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
