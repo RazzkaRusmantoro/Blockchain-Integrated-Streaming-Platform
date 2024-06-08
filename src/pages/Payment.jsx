@@ -36,6 +36,9 @@ const Payment = () => {
             </label>
           </div>
         </div>
+        <div>
+            <button className = "contButton">Continue</button>
+        </div>
       </div>
     </div>
   );

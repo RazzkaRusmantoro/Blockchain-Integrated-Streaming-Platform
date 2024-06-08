@@ -27,7 +27,7 @@ body::before {
   justify-content: center;
   align-items: center;
   min-height: 10vh;
-  padding: 200px;
+  padding: 200px 200px 50px ;
   background-color: white;
   border-radius: 30px;
   border-style: outset;
@@ -91,3 +91,7 @@ body::before {
   margin-left: 10ypx;
 }
 
+.contButton {
+
+  margin-top: 40px;
+}
